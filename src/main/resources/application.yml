@@ -1,0 +1,15 @@
+server:
+  port: 9008
+
+spring:
+  application:
+    name: WaggleWaggle
+  profiles:
+    active: local
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
