@@ -38,3 +38,12 @@ out/
 
 # Senstive configuration file
 .env
+.env.local
+
+# Docker 관련
+.dockerignore
+
+# 민감한 설정 파일
+application-prod.yml
+application-local.yml
+**/application-*.yml
