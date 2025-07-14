@@ -38,4 +38,3 @@ out/
 
 # Senstive configuration file
 .env
-src/main/resources/application.yml
