@@ -38,7 +38,7 @@ public class CommentService {
 			throw new IllegalArgumentException("존재하지 않는 게시글입니다. ID: " + postId);
 		}
 
-		List<Comment> comments = commentRepository.findByPostIdOrderByCreatedAtAsc(postId);
+		List<Comment> comments = commentRepository.findAllWithPostByPostId(postId);
 
 		return comments.stream()
 			.map(CommentResponse::new)
