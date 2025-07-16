@@ -18,8 +18,7 @@ repositories {
 }
 
 dependencies {
-    // .env 파일 로드 라이브러리
-    implementation 'me.paulschwarz:spring-dotenv:4.0.0'
+    
     // Spring Web: 웹 애플리케이션 및 RESTful API 개발
     implementation 'org.springframework.boot:spring-boot-starter-web'
     // Spring Data JPA: ORM을 통한 데이터베이스 접근
