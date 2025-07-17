@@ -29,13 +29,13 @@ public class PostService {
 	public PostResponse findPostById(final Long postId) {
 		Post post = postRepository.findById(postId)
 			.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 게시글입니다. ID: " + postId));
-		return new PostResponse(post);
+		return PostResponse.from(post);
 	}
 
 	@Transactional(readOnly = true)
 	public List<PostResponse> findAllPosts() {
 		return postRepository.findAll().stream()
-			.map(PostResponse::new)
+			.map(PostResponse::from)
 			.collect(Collectors.toList());
 	}
 
