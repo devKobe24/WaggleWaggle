@@ -1,24 +1,52 @@
 package com.kobe.wagglewaggle.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.kobe.wagglewaggle.domain.Comment;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Builder
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CommentResponse {
 
-	private final Long id;
-	private final String content;
-	private final String author;
-	private final Long postId;
-	private final LocalDateTime createdAt;
-	private final LocalDateTime updatedAt;
+	private Long id;
+	private String content;
+	private String author;
+	private Long postId;
+	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 
-	public CommentResponse(Comment comment) {
-		this.id = comment.getId();
-		this.content = comment.getContent();
-		this.author = comment.getAuthor();
-		this.postId = comment.getPost().getId();
-		this.createdAt = comment.getCreatedAt();
-		this.updatedAt = comment.getUpdatedAt();
+	public static CommentResponse from(Comment comment) {
+		if (comment == null) {
+			return null;
+		}
+
+		return CommentResponse.builder()
+			.id(comment.getId())
+			.content(comment.getContent())
+			.author(comment.getAuthor())
+			.postId(comment.getPost() != null ? comment.getPost().getId() : null)
+			.createdAt(comment.getCreatedAt())
+			.updatedAt(comment.getUpdatedAt())
+			.build();
+	}
+
+	@Override
+	public String toString() {
+		return "CommentResponse{" +
+			"id=" + id +
+			", content='" + content + '\'' +
+			", author='" + author + '\'' +
+			", postId=" + postId +
+			", createdAt=" + createdAt +
+			", updatedAt=" + updatedAt +
+			'}';
 	}
 }
