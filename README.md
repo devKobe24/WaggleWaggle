@@ -7,4 +7,4 @@ For commercial licensing, please contact: **dev.skyachieve91@gmail.com**
 
 -------------------------------------------------------------------------
 
-Swagger API : http://3.35.13.184:9008/swagger-ui/index.html#/
+[Swagger API](http://3.35.13.184:9008/swagger-ui/index.html#/)
