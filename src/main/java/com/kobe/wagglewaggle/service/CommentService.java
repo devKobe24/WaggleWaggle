@@ -40,9 +40,17 @@ public class CommentService {
 
 		List<Comment> comments = commentRepository.findAllWithPostByPostId(postId);
 
-		return comments.stream()
-			.map(CommentResponse::new)
+		List<CommentResponse> responses = comments.stream()
+			.map(CommentResponse::from)
 			.collect(Collectors.toList());
+
+		if (!responses.isEmpty()) {
+			System.out.println("✅ 첫 번째 CommentResponse: " + responses.get(0));
+		} else {
+			System.out.println("⚠️ 댓글 없음");
+		}
+
+		return responses;
 	}
 
 	@Transactional
